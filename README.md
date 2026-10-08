@@ -1,31 +1,39 @@
 # Markstitch
 
+[![CI][ci-badge]][ci-url]
+[![Publish to PyPI][publish-badge]][publish-url]
+[![PyPI version][pypi-badge]][pypi-url]
+[![Python 3.12+][python-badge]][pypi-url]
+[![MIT License][license-badge]](LICENSE)
+[![Type checks: mypy, ty, Pyrefly][types-badge]][ci-url]
+
 Compose, parse, and edit YFM documents in Python.
 
 Build documents for **Yandex Tracker**, Yandex Wiki, and Diplodoc using Python objects.
 Requires Python 3.12+. Import the library as `markstitch`. Document generation has no
-runtime dependencies; parsing requires the `parser` extra:
+runtime dependencies; parsing requires the `parser` extra.
+
+## Installation
+
+Install from [PyPI][pypi-url]:
 
 ```sh
-git clone https://github.com/LerikP/markstitch.git
-cd markstitch
-uv sync --locked --extra parser
+pip install markstitch
 ```
 
-The package is not published on PyPI yet. To install from a local checkout:
+To parse and edit existing documents, include the optional parser:
 
 ```sh
-pip install ".[parser]"
+pip install "markstitch[parser]"
+```
+
+Or add it to a uv project:
+
+```sh
+uv add "markstitch[parser]"
 ```
 
 ## Quick start
-
-From the project directory:
-
-```sh
-uv sync --locked
-uv run python examples/tracker.py
-```
 
 ```python
 from markstitch import YFM, Header3, Link, NumberedList
@@ -294,8 +302,13 @@ Inherit from `Inline` to define a custom inline element.
 
 ## Checks and builds
 
+Set up a source checkout to run the examples, tests, and development tools:
+
 ```sh
+git clone https://github.com/LerikP/markstitch.git
+cd markstitch
 uv sync --locked --extra parser
+uv run python examples/tracker.py
 uv run ruff format --check .
 uv run ruff check .
 uv run --extra parser mypy markstitch
@@ -323,8 +336,8 @@ Python dependencies come from PyPI; the renderer comes from npm.
 ## CI and publishing
 
 GitHub Actions runs the full test suite on Python 3.12, 3.13, and 3.14 for pull requests
-and pushes to `main`. It also checks formatting, lint, and types with mypy, ty, and Pyrefly, builds the wheel and
-source distribution, validates their metadata, and smoke-tests both installed distributions
+and pushes to `main`. It checks formatting and lint with Ruff and types with mypy, ty, and Pyrefly.
+It also builds the wheel and source distribution, validates their metadata, and smoke-tests both installed distributions
 with and without the parser extra. Successful builds expose a `python-distributions` artifact.
 
 Publishing a GitHub Release runs the same checks and uploads the resulting distributions
@@ -349,3 +362,13 @@ The API is inspired by [SnakeMD](https://www.snakemd.io/en/latest/); no source c
 ## License
 
 Markstitch is licensed under the [MIT License](LICENSE).
+
+[ci-badge]: https://github.com/LerikP/markstitch/actions/workflows/ci.yml/badge.svg?branch=main
+[ci-url]: https://github.com/LerikP/markstitch/actions/workflows/ci.yml
+[publish-badge]: https://github.com/LerikP/markstitch/actions/workflows/publish.yml/badge.svg?event=release
+[publish-url]: https://github.com/LerikP/markstitch/actions/workflows/publish.yml
+[pypi-badge]: https://img.shields.io/pypi/v/markstitch?logo=pypi&logoColor=white
+[pypi-url]: https://pypi.org/project/markstitch/
+[python-badge]: https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white
+[license-badge]: https://img.shields.io/pypi/l/markstitch
+[types-badge]: https://img.shields.io/badge/types-mypy%20%7C%20ty%20%7C%20Pyrefly-3776AB
