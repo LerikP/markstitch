@@ -25,6 +25,8 @@ dev = [
     "pytest>=8.4.2",
     "ruff>=0.13.0",
     "mypy>=1.18.0",
+    "ty>=0.0.85",
+    "pyrefly>=1.3.2",
     "twine>=6.2.0",
 ]
 
@@ -158,3 +160,7 @@ warn_redundant_casts = true
 warn_return_any = false
 warn_unreachable = true
 warn_unused_configs = true
+
+[tool.pyrefly]
+project-includes = ["markstitch"]
+python-version = "3.12"

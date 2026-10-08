@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 import textwrap
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, cast
 
 from markdown_it.helpers import parseLinkDestination, parseLinkTitle
 
@@ -119,7 +119,7 @@ def _layout(name: str, args: str, children: tuple[Element, ...]) -> Element:
         if not all(isinstance(child, StyledBlock) for child in children):
             raise ValueError("Layout must contain blocks")
 
-        return Layout(*children, **attrs)  # type: ignore[arg-type]
+        return Layout(*cast(tuple[StyledBlock, ...], children), **attrs)
 
     for key in ("width", "col"):
         if key in attrs:

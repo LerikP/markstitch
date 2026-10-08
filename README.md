@@ -299,6 +299,8 @@ uv sync --locked --extra parser
 uv run ruff format --check .
 uv run ruff check .
 uv run --extra parser mypy markstitch
+uv run --extra parser ty check markstitch
+uv run --extra parser pyrefly check markstitch
 # Python behavior without Node.js:
 uv run --extra parser pytest -m 'not renderer'
 
@@ -315,13 +317,13 @@ attribute parsing, and escaping. Template tests explicitly enable Liquid and cov
 both conditional branches, loops, slicing, and filters. Wiki-specific macros and
 Tracker editor syntax are checked against their text contracts.
 
-Ruff, mypy, pytest, and Twine are development dependencies with versions pinned in `uv.lock`.
+Ruff, mypy, ty, Pyrefly, pytest, and Twine are development dependencies with versions pinned in `uv.lock`.
 Python dependencies come from PyPI; the renderer comes from npm.
 
 ## CI and publishing
 
 GitHub Actions runs the full test suite on Python 3.12, 3.13, and 3.14 for pull requests
-and pushes to `main`. It also checks formatting, lint, and types, builds the wheel and
+and pushes to `main`. It also checks formatting, lint, and types with mypy, ty, and Pyrefly, builds the wheel and
 source distribution, validates their metadata, and smoke-tests both installed distributions
 with and without the parser extra. Successful builds expose a `python-distributions` artifact.
 

@@ -51,6 +51,8 @@ jobs:
           uv run --locked --extra parser ruff format --check .
           uv run --locked --extra parser ruff check .
           uv run --locked --extra parser mypy markstitch
+          uv run --locked --extra parser ty check markstitch
+          uv run --locked --extra parser pyrefly check markstitch
 
       - name: Run tests, including renderer integration
         run: uv run --locked --extra parser pytest
