@@ -4,7 +4,7 @@
 [![Publish to PyPI][publish-badge]][publish-url]
 [![PyPI version][pypi-badge]][pypi-url]
 [![Python 3.12+][python-badge]][pypi-url]
-[![MIT License][license-badge]](LICENSE)
+[![MIT License][license-badge]][license-url]
 [![Type checks: mypy, ty, Pyrefly][types-badge]][ci-url]
 
 Compose, parse, and edit YFM documents in Python.
@@ -253,7 +253,7 @@ image = Image("_images/icon.svg", width=40, inline=False)
 `data-*`, `aria-*`, and `title` attributes through `extra`. CSS values can be keywords,
 dimensions, or colors; functions, URLs, embedded declarations, and markup delimiters
 are rejected. Attribute handling in HTML depends on the renderer version:
-see [pinned renderer limitations](docs/compatibility.md#renderer).
+see [pinned renderer limitations](https://github.com/LerikP/markstitch/blob/main/docs/compatibility.md#renderer).
 
 The document author should supply trusted values for `classes` and `style`. Do not pass
 user input to them: CSS classes may activate JavaScript behavior in the target service,
@@ -286,8 +286,8 @@ filters, such as `filters=("length",)`. Diplodoc executes the template; the libr
 
 ## Syntax coverage
 
-See the [compatibility matrix and references](docs/compatibility.md) for built-in constructs,
-optional plugins, and remaining limitations. Custom nodes can represent third-party syntax:
+See the [compatibility matrix and references](https://github.com/LerikP/markstitch/blob/main/docs/compatibility.md)
+for built-in constructs, optional plugins, and remaining limitations. Custom nodes can represent third-party syntax:
 
 ```python
 from markstitch import Element, Profile
@@ -344,7 +344,7 @@ Publishing a GitHub Release runs the same checks and uploads the resulting distr
 to PyPI through Trusted Publishing. The release tag must match the package version exactly,
 for example `v0.1.0` for version `0.1.0`. Pushing a commit or tag alone does not publish a package.
 
-See [releasing](docs/releasing.md) for the one-time PyPI setup and release procedure.
+See [releasing](https://github.com/LerikP/markstitch/blob/main/docs/releasing.md) for the one-time PyPI setup and release procedure.
 
 ## Package structure
 
@@ -361,7 +361,7 @@ The API is inspired by [SnakeMD](https://www.snakemd.io/en/latest/); no source c
 
 ## License
 
-Markstitch is licensed under the [MIT License](LICENSE).
+Markstitch is licensed under the [MIT License][license-url].
 
 [ci-badge]: https://github.com/LerikP/markstitch/actions/workflows/ci.yml/badge.svg?branch=main
 [ci-url]: https://github.com/LerikP/markstitch/actions/workflows/ci.yml
@@ -371,4 +371,5 @@ Markstitch is licensed under the [MIT License](LICENSE).
 [pypi-url]: https://pypi.org/project/markstitch/
 [python-badge]: https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white
 [license-badge]: https://img.shields.io/pypi/l/markstitch
+[license-url]: https://github.com/LerikP/markstitch/blob/main/LICENSE
 [types-badge]: https://img.shields.io/badge/types-mypy%20%7C%20ty%20%7C%20Pyrefly-3776AB

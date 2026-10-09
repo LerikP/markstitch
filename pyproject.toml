@@ -1,6 +1,6 @@
 [project]
 name = "markstitch"
-version = "0.1.0"
+version = "0.1.1"
 description = "Compose, parse, and edit YFM documents in Python"
 authors = [
     { name = "Valery Pavlov" },
